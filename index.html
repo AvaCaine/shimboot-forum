@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://emupedia.net/beta/emuos/favicon.png" type="image/x-icon" onerror="this.style.display='none'">
+    <title>EmuOS Embedded</title>
+    <style>
+        /* Basic reset and styles for a full-page iframe */
+        html { 
+            overflow: hidden; /* Prevents the main page from having scrollbars */
+        }
+        
+        html, body, iframe { 
+            margin: 0; 
+            padding: 0; 
+            height: 100%; 
+            width: 100%;
+            border: none; 
+        } 
+        
+        iframe { 
+            display: block; 
+            overflow-y: auto; /* Allows scrolling within the iframe if needed */
+            overflow-x: hidden; 
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+      The 'sandbox' attribute is the key to preventing the redirect.
+      It restricts the actions the content within the iframe can perform.
+
+      - 'allow-scripts': Allows the embedded page to run scripts. This is usually necessary for functionality.
+      - 'allow-same-origin': Allows the content to be treated as being from its actual origin. This is important for cookies, local storage, and other origin-specific features.
+      - 'allow-forms': Permits form submissionsMa from within the iframe.
+      - 'allow-popups': Allows the creation of new windows or tabs via window.open() or target="_blank".
+      - 'allow-pointer-lock': Important for games or apps that need to capture mouse input.
+      - 'allow-modals': Allows the iframe to open modal dialogs.
+
+      Crucially, we are *not* including 'allow-top-navigation'. This is the value that would
+      permit the iframe to redirect the main page. By omitting it, we block that behavior.
+    -->
+    <iframe 
+        src="https://shimboot.boards.net/board/1/general-discussion" 
+        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-pointer-lock allow-modals">
+    </iframe>
+</body>
+</html>
